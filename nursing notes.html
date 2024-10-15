@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nursing Notes Template</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h2 {
+            text-align: center;
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        form, .result {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="number"], textarea, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        textarea {
+            resize: vertical;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .procedure-group {
+            display: none;
+            margin-top: 10px;
+        }
+        .procedure-group.active {
+            display: block;
+        }
+        .result {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .result h3 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .result hr {
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Nursing Notes Entry</h2>
+
+<img src="C:\Users\moham\OneDrive\Desktop\New folder (2)\logo care.jpg" alt="Header Image" class="header-img"> <!-- Add your image here -->
+
+<form id="nursing-notes-form">
+    <!-- Endorsement Section -->
+    <h2>Endorsement</h2>
+    <div class="form-group">
+        <label for="pt-name">I received pt named</label>
+        <input type="text" id="pt-name">
+    </div>
+    <div class="form-group">
+        <label for="from">From</label>
+        <input type="text" id="from">
+    </div>
+    <div class="form-group">
+        <label for="conscious-level">Level of Consciousness</label>
+        <input type="text" id="conscious-level">
+    </div>
+
+  <!-- Assessment Section -->
+    <h2>Assessment</h2>
+    <div class="form-group">
+        <label for="complaining-with">Complaining With</label>
+        <input type="text" id="complaining-with">
+    </div>
+    <div class="form-group">
+        <label for="past-medical-history">Past Medical History</label>
+        <input type="text" id="past-medical-history">
+    </div>
+    <div class="form-group">
+        <label for="past-surgical-history">Past Surgical History</label>
+        <input type="text" id="past-surgical-history">
+    </div>
+    <div class="form-group">
+        <label for="medication-history">Medication History</label>
+        <input type="text" id="medication-history">
+    </div>
+    <div class="form-group">
+        <label for="allergy">Allergy</label>
+        <input type="text" id="allergy">
+    </div>
+    <div class="form-group">
+        <label for="last-meal">Last Meal</label>
+        <input type="text" id="last-meal">
+    </div>
+    <div class="form-group">
+        <label for="skin-condition">Skin Condition</label>
+        <input type="text" id="skin-condition">
+    </div>
+
+    <!-- Vital Signs Section -->
+    <h2>Vital Signs</h2>
+    <div class="form-group">
+        <label for="bp">Blood Pressure (BP)</label>
+        <input type="text" id="bp">
+    </div>
+    <div class="form-group">
+        <label for="hr">Heart Rate (HR)</label>
+        <input type="number" id="hr">
+    </div>
+    <div class="form-group">
+        <label for="temp">Temperature (Temp)</label>
+        <input type="number" step="0.1" id="temp">
+    </div>
+    <div class="form-group">
+        <label for="rr">Respiratory Rate (RR)</label>
+        <input type="number" id="rr">
+    </div>
+    <div class="form-group">
+        <label for="sa02">Oxygen Saturation (SaO2)</label>
+        <input type="number" id="sa02">
+    </div>
+    <div class="form-group">
+        <label for="rbs">Random Blood Sugar (RBS)</label>
+        <input type="number" id="rbs">
+    </div>
+
+    <!-- Nursing Procedures Section -->
+    <h2>Nursing Procedures</h2>
+    <div class="form-group">
+        <label>Select Procedures</label>
+        <input type="checkbox" name="procedure" value="triaging"> Triaging<br>
+        <input type="checkbox" name="procedure" value="ecg"> ECG<br>
+        <input type="checkbox" name="procedure" value="encoding"> Encoding<br>
+        <input type="checkbox" name="procedure" value="verification"> Verification<br>
+        <input type="checkbox" name="procedure" value="peripheral-line"> Peripheral Cannula<br>
+        <input type="checkbox" name="procedure" value="neb"> Neb<br>
+        <input type="checkbox" name="procedure" value="dressing"> Dressing<br>
+        <input type="checkbox" name="procedure" value="suture"> Suture<br>
+        <input type="checkbox" name="procedure" value="cast"> CAST<br>
+        <input type="checkbox" name="procedure" value="enema"> Enema<br>
+        <input type="checkbox" name="procedure" value="central-line"> Central Line<br>
+        <input type="checkbox" name="procedure" value="arterial-line"> Arterial Line<br>
+        <input type="checkbox" name="procedure" value="intubation"> Endotracheal Intubation<br>
+        <input type="checkbox" name="procedure" value="chest-tube"> Chest Tube<br>
+        <input type="checkbox" name="procedure" value="ngt"> NGT Insertion<br>
+        <input type="checkbox" name="procedure" value="fuc"> FUC Insertion<br>
+        <input type="checkbox" name="procedure" value="defib"> Defib<br>
+        <input type="checkbox" name="procedure" value="transportation"> Transportation<br>
+    </div>
+
+    <div id="procedure-details"></div>
+
+    <!-- Medications Section -->
+    <h2>Medications</h2>
+    <div class="form-group">
+        <label for="medications">Enter Medications</label>
+        <textarea id="medications" rows="4"></textarea>
+        <button type="button" onclick="addMedication()">Add Medication</button>
+    </div>
+    <div id="medication-list"></div>
+
+    <!-- Imaging & Labs Section -->
+    <h2>Imaging & Labs</h2>
+    <div class="form-group">
+        <label for="labs">Enter Imaging & Labs</label>
+        <textarea id="labs" rows="4"></textarea>
+        <button type="button" onclick="addLab()">Add Imaging/Lab</button>
+    </div>
+    <div id="labs-list"></div>
+
+    <!-- Events Section -->
+    <h2>Events</h2>
+    <div class="form-group">
+        <label for="events">Enter Events</label>
+        <textarea id="events" rows="4"></textarea>
+    </div>
+
+    <!-- Plans Section -->
+    <h2>Plans</h2>
+    <div class="form-group">
+        <label for="plans">Enter Plans</label>
+        <textarea id="plans" rows="4"></textarea>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="button" onclick="submitForm()">Submit</button>
+
+</form>
+
+<!-- Display submitted data -->
+<div class="result" id="submitted-data"></div>
+<button id="copy-button" style="display:none;" onclick="copyToClipboard()">Copy to Clipboard</button>
+
+<script>
+    // Procedure templates
+    const procedureTemplates = {
+        'triaging': "00:00H : pt is CTAS (  )   BP :     HR :       RR :   Temp:    SAO2:    %     RBS:     ",
+        'ecg': "00:00H : ( ) ECG done showing ( )",
+        'encoding': "00:00H : Encoding for all Supplies Done",
+        'verification': "00:00H : Verification for all medications Done and Checking on Complete done",
+        'peripheral-line': "00:00H : P.Line G (   )  inserted in ( ) and in place and patent",
+        'neb': "00:00H : pt has (   ) , Neb (    ) given  to the patient ",
+        'dressing': "00:00H : pt has (   ) , Dressing done to the patient.",
+        'suture': "00:00H : pt has (   ) , ( ) stitich done  Done to the patient.",
+        'cast': "00:00H : pt has (  ) , Cast Done to the patient.",
+        'enema': "00:00H : pt has (  ) , Enema Done to the patient.",
+        'central-line': "00:00H : Consent of CVC signed by (  ) Centrral line ( 3 lumen  ) inserted to the pt by (  )   in  (  )  under sterile technique ,  CVC is  patent and in place and there is no oozing of blood from insertion site  and dressing on insertion site > flushing and flushing back is done .CXR done to the patient to confirm the place of CVC  ... showing  in place   > Time out during Central line Done . > CLABSI Bundle followed and document done and attached on system ",
+        'arterial-line': "00:00H : Consent of Arterial signed by ( ...) Arterial  line inserted to the pt by ( Dr ...)  , in  (..... ) under sterile technique >patent and in place and there is no oozing of blood from insertion site  and dressing on insertion site > zero line done , configuration done ... invasive Blood Pressure . CLABSI Bundle followed and document done and attached on system > Time out during Arteial line Done .",
+        'intubation': "00:00H : pt was  (   ) , Dr (   )  ordered to prepare for intubation  >> Consent of Sedation signed by (  ) >> all intubation  supplies & instruments  are ready , RT  ( ) was ready , MV is standby after intubation ETT size 8 inserted  by Dr (...)  . with assistance of RT : ( ... ) fixation point  is .... >> pt attached with MV on [ Mode : .... , PEEP : ..... , VT : ..... , FIO2 :..... , RR: ....... , I:E:....... ] >> CXR was done  to confirm the placement of ETT  ... showing  in place >> VAP Bundle followed and document done and attached on system . >> V/S : V/S ( BP :   , HR :     , RR :    , SAO2   % )",
+        'chest-tube': "00:00H : Consent of Chest Tube signed by ( ...) Chest tube   inserted to the pt by ( Dr ...)  , in  (..... ) under sterile technique >> Chest tube was patent and in place and there is no oozing of blood from insertion site  and dressing on insertion site , zero line done is 500 cm of Normal saline … fluctuation  is seen during inspiration and expiration  > Time out during Chest Tube Done .",
+        'ngt': "00:00H : NGT was inserted to pt  in RT nostril  size ( .... ) fixed and in place  >> placement of NGT confirmed  by auscultation ( hearing gushing of air during pushing  Tommy syringe ) showing in place  >> V/S ( BP :   , HR :     , RR :    , SAO2   %) .",
+        'fuc': "00:00H : ( Folley /Silicon)  Urinary Catheter inserted  to pt ( size : ...  Fr) , fixation : ( ... Ml of N.S )  and fixed on ( ..... )  by (... )",
+        'defib': "00:00H : ECG done : showing that pt has acute AF not responding to medication given >> Dr (...) order prepare for Cardioversion  Consent of Sedation - Cardioversion   signed by ( ...)  >> V/S ( BP :   , HR :     , RR :    , SAO2   %) >> Health teaching giving to the patient about the procedure  >> gel applied to patient chest  >>joule selected ( ... )  DC pads applied  >> SYNC button activated  ...Joule delivered to the patient , ECG on cardiac monitor shows sinus rhythm >> ECG Done  ,  V/S ( BP :   , HR :     , RR :    , SAO2   %)",
+        'transportation': "00:00H : pt transferred to Hospital   (   )  with Dr. (  ) and SN (   )."
+    };
+
+    // Show text area for selected procedures
+    document.querySelectorAll('input[name="procedure"]').forEach((checkbox) => {
+        checkbox.addEventListener('change', function() {
+            let procedureDetails = document.getElementById('procedure-details');
+            if (this.checked) {
+                let procedureDiv = document.createElement('div');
+                procedureDiv.className = 'procedure-group active';
+                let textArea = document.createElement('textarea');
+                textArea.rows = 4;
+                textArea.textContent = procedureTemplates[this.value];
+                procedureDiv.appendChild(textArea);
+                procedureDetails.appendChild(procedureDiv);
+            } else {
+                Array.from(procedureDetails.children).forEach((child) => {
+                    if (child.querySelector('textarea').textContent === procedureTemplates[this.value]) {
+                        procedureDetails.removeChild(child);
+                    }
+                });
+            }
+        });
+    });
+
+    // Add medication
+    function addMedication() {
+        let medList = document.getElementById('medication-list');
+        let newMed = document.createElement('div');
+        newMed.textContent = document.getElementById('medications').value;
+        medList.appendChild(newMed);
+        document.getElementById('medications').value = '';
+    }
+
+    // Add lab
+    function addLab() {
+        let labsList = document.getElementById('labs-list');
+        let newLab = document.createElement('div');
+        newLab.textContent = document.getElementById('labs').value;
+        labsList.appendChild(newLab);
+        document.getElementById('labs').value = '';
+    }
+
+    // Submit form and display data
+    function submitForm() {
+        let result = document.getElementById('submitted-data');
+        let procedures = Array.from(document.querySelectorAll('#procedure-details textarea')).map(textarea => textarea.value);
+        let medications = Array.from(document.querySelectorAll('#medication-list div')).map(div => div.textContent);
+        let labs = Array.from(document.querySelectorAll('#labs-list div')).map(div => div.textContent);
+        let plans = document.getElementById('plans').value;
+
+        // Collect all data entries in order
+        let endorsement = {
+            ptName: document.getElementById('pt-name').value,
+            from: document.getElementById('from').value,
+            consciousLevel: document.getElementById('conscious-level').value
+        };
+
+        let vitalSigns = {
+            bp: document.getElementById('bp').value,
+            hr: document.getElementById('hr').value,
+            temp: document.getElementById('temp').value,
+            rr: document.getElementById('rr').value,
+            sa02: document.getElementById('sa02').value,
+            rbs: document.getElementById('rbs').value
+        };
+
+        let assessment = {
+            complainingWith: document.getElementById('complaining-with').value,
+            pastMedicalHistory: document.getElementById('past-medical-history').value,
+            pastSurgicalHistory: document.getElementById('past-surgical-history').value,
+            medicationHistory: document.getElementById('medication-history').value,
+            allergy: document.getElementById('allergy').value,
+            lastMeal: document.getElementById('last-meal').value,
+            skinCondition: document.getElementById('skin-condition').value
+        };
+
+        let events = document.getElementById('events').value;
+
+        // Organize and format the output
+        let output = `
+        <h3>Endorsement:</h3>
+        <b>Patient Name:</b> ${endorsement.ptName}<br>
+        <b>From:</b> ${endorsement.from}<br>
+        <b>Level of Consciousness:</b> ${endorsement.consciousLevel}<hr>
+        
+        <h3>Vital Signs:</h3>
+        <b>BP:</b> ${vitalSigns.bp}<br>
+        <b>HR:</b> ${vitalSigns.hr}<br>
+        <b>Temp:</b> ${vitalSigns.temp}<br>
+        <b>RR:</b> ${vitalSigns.rr}<br>
+        <b>SaO2:</b> ${vitalSigns.sa02}<br>
+        <b>RBS:</b> ${vitalSigns.rbs}<hr>
+        
+        <h3>Assessment:</h3>
+        <b>Complaining With:</b> ${assessment.complainingWith}<br>
+        <b>Past Medical History:</b> ${assessment.pastMedicalHistory}<br>
+        <b>Past Surgical History:</b> ${assessment.pastSurgicalHistory}<br>
+        <b>Medication History:</b> ${assessment.medicationHistory}<br>
+        <b>Allergy:</b> ${assessment.allergy}<br>
+        <b>Last Meal:</b> ${assessment.lastMeal}<br>
+        <b>Skin Condition:</b> ${assessment.skinCondition}<hr>
+        
+        <h3>Procedures:</h3>
+        ${procedures.join('<br><hr>')}
+        
+        <h3>Medications:</h3>
+        ${medications.join('<br>')}<hr>
+        
+        <h3>Imaging & Labs:</h3>
+        ${labs.join('<br>')}<hr>
+        
+        <h3>Events:</h3>
+        ${events}<hr>
+        
+        <h3>Plans:</h3>
+        ${plans}
+        `;
+
+        result.innerHTML = output;
+        document.getElementById('copy-button').style.display = 'block';
+    }
+
+    // Copy the text to clipboard
+    function copyToClipboard() {
+        let copyText = document.getElementById('submitted-data').innerText;
+        navigator.clipboard.writeText(copyText).then(() => {
+            alert('Data copied to clipboard');
+        });
+    }
+</script>
+
+</body>
+</html>
